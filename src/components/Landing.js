@@ -37,12 +37,7 @@ export function Landing() {
         <FeaturedVariants /> 
 
       {/* testimonial */} 
-        <Testimonial /> 
-      
-      {/* about */} 
-        <About /> 
-      {/* Footer */}
-      <Footer />
+        <Testimonial />   
     </>
   )
 }

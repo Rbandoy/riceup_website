@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
+
 export function Footer() {
   return (
     <footer className="bg-lighter mt-[10rem]"> 
@@ -43,11 +45,11 @@ export function Footer() {
                   whileHover={{scale: 1.1}}
                   transition={{type: 'spring', stiffness: 80}}
                     href='#featured' className='hover:text-secondary cursor-pointer'>Email: andoyonlinestore@gmail.com</motion.a>
-              <motion.a 
+              <motion.div 
                   initial={{scale: 1}}
                   whileHover={{scale: 1.1}}
                   transition={{type: 'spring', stiffness: 80}}
-                    href='#about' className='hover:text-secondary cursor-pointer'>About</motion.a>
+                  className='hover:text-secondary cursor-pointer'><Link to="/policy">Privacy Policy</Link> </motion.div> 
             </div> 
         </div>
       </div> 

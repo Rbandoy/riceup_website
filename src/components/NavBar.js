@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const NavMenu = [
-  {name: "Home", link: "#"},
-  {name: "About Us", link: "#about"},
-  {name: "Features", link: "#features"}
+  {name: "Home", link: "/"},
+  {name: "About Us", link: "/about"},
+  {name: "Privacy Policy", link: "/policy"}
 ]
 
 export function NavBar() {
@@ -15,21 +16,18 @@ export function NavBar() {
       <div className="flex items-center justify-between">
         <div className='pt-2 mx-[4rem]'>
           <img className="w-20 h-auto" alt="" src={require('../assets/logo.png')}/> 
-        </div> 
-      
+        </div>  
         <div className='flex items-center justify-between'>
         <ul className="hidden md:flex space-x-12">
           {
             NavMenu.map((item) => (
-              <a href={item.link}>
-                <li key={item.name} className="hover:text-secondary text-primaryText hover:underline hover:decoration-1 cursor-pointer">{item.name}</li>
-              </a>
+              <Link to={item.link}  className="hover:text-secondary text-primaryText hover:underline hover:decoration-1 cursor-pointer">{item.name}</Link> 
             ))
           }
         </ul>
         <a href='#'
         className="hidden md:block hover:bg-secondary bg-buttonColor text-primaryText font-bold mx-4 px-6 pt-2 p-3 baseline rounded-full">
-          Login</a>
+          Order Now</a>
         </div>
 
         <img onClick={() => setHamburger(!hamburger)} className="cursor-pointer h-8 md:hidden block " src={ hamburger ? "https://cdn-icons-png.flaticon.com/512/109/109602.png": "https://blog.hubspot.com/hs-fs/hubfs/What%20is%20a%20Hamburger%20Button.png?width=225&name=What%20is%20a%20Hamburger%20Button.png" } />

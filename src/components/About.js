@@ -12,15 +12,13 @@ export function About() {
 
   return (
     <section id='about'>
-     <motion.div 
-    style={{opacity}}
-    ref={targetRef}
-    animate={{ scale: 0, opacity: 0 }} 
-    whileInView={{ scale: 1, opacity: 1 }}
-    transition={{type: 'spring', stiffness: 80}}
-    className='mt-[15rem]'
-    >
-        <div className='flex flex-col items-center mt-[14rem]'>
+   
+        <motion.div 
+      initial={{ x:'100vw', opacity: 0, scale: 0 }}
+      animate={{x: 0, opacity: 1, scale: 1}}  
+      transition={{type: 'spring', stiffness: 300}}
+      
+    className='flex flex-col items-center mt-[3rem]'>
        
           <h1 className='font-bold text-center text-6xl md:text-left'>
               About Us
@@ -29,14 +27,14 @@ export function About() {
           <motion.div 
                   initial={{scale: 1}}
                   whileHover={{scale: 1.1}}
-                  transition={{type: 'spring', stiffness: 80}}
+                  transition={{type: 'spring', stiffness: 200}}
                   className='cursor-pointer'
                   >
-          <h2 className='font-bold text-center text-3xl mt-8'>
+          <h2 className='font-bold text-center  mt-[5rem] text-3xl mt-8'>
               Rice Up
           </h2>
 
-          <p className='max-w-4xl text-center mx-20 text-2xl text-secondary md:text-left'>
+          <p className='max-w-4xl text-center  mx-20 text-2xl text-secondary md:text-left'>
           is an innovative and user-friendly mobile
 application designed to revolutionize the way people buy and consume rice. We
 aim to provide a one-stop solution for all rice-related need by offering a wide
@@ -64,8 +62,7 @@ families with an easy, reliable, and time-savngs way to access any varieties of 
 ensuring that the heart of every meal is both wholesome and delicious.
                 </p>
                 </motion.div>
-        </div>  
-        </motion.div>
+        </motion.div >   
       </section>
   )
 }
