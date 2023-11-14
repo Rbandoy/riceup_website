@@ -14,7 +14,7 @@ export function WhyChoose() {
   return (
     <section id='choose'>
         <motion.div 
-        style={{opacity}}
+        animate={{opacity}}
         ref={targetRef}
       > 
         <div className='grid place-content-center mt-[13rem]'> 
