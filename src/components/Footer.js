@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 export function Footer() {
   return (
-    <footer className="bg-lighter"> 
+    <footer className="bg-lighter mt-[10rem]"> 
       <div className="flex flex-col-reverse justify-between md:mx-[15rem] px-6 py-10 max-auto space-y-8 md:flex-row md:space-y-0">
         <div className='flex flex-col-reverse items-center space-y-2 md:flex-col md:space-y-0 md:items-start'>
           <div>
@@ -14,14 +15,39 @@ export function Footer() {
         </div>
         <div className='flex justify-around space-x-32'>
             <div className='flex flex-col mx-4 space-y-3'>
-              <a href='' className='hover:text-secondary'>Home</a>
-              <a href='#featured' className='hover:text-secondary'>Products</a>
-              <a href='#about' className='hover:text-secondary'>About</a> 
+            <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                    href='' className='hover:text-secondary cursor-pointer'>Home</motion.a>
+              <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                href='#featured' className='hover:text-secondary cursor-pointer'>Products</motion.a>
+              <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                  href='#about' className='hover:text-secondary cursor-pointer'>About</motion.a>
             </div> 
             <div className='flex flex-col mx-4 space-y-3'>
-              <a href='' className='hover:text-secondary'>Privacy And Policy</a>
-              <a href='#featured' className='hover:text-secondary'>Email: andoyonlinestore@gmail.com</a>
-              <a href='#about' className='hover:text-secondary'>About</a> 
+            <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                  
+            href='' className='hover:text-secondary cursor-pointer'>Privacy And Policy</motion.a>
+              <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                    href='#featured' className='hover:text-secondary cursor-pointer'>Email: andoyonlinestore@gmail.com</motion.a>
+              <motion.a 
+                  initial={{scale: 1}}
+                  whileHover={{scale: 1.1}}
+                  transition={{type: 'spring', stiffness: 80}}
+                    href='#about' className='hover:text-secondary cursor-pointer'>About</motion.a>
             </div> 
         </div>
       </div> 

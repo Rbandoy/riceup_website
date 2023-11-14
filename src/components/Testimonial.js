@@ -1,9 +1,26 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 export function Testimonial() {
+  const targetRef = useRef(null)
+  const {scrollYProgress} = useScroll({
+    target: targetRef,
+    offset: ["end start", "end end"],
+  })
+
+  const opacity = useTransform(scrollYProgress, [1,0], [1,0])
+
   return (
     <section id='testimonial'>
-          <div className='max-w-6xl px-5 mx-auto mt-[12rem] text-center'>
+      <motion.div 
+         style={{opacity}}
+         ref={targetRef}
+         animate={{ scale: 0, opacity: 0 }} 
+         whileInView={{ scale: 1, opacity: 1 }}
+        transition={{type: 'spring', stiffness: 80}}
+        className='mt-[13rem]'
+      > 
+          <div className='max-w-6xl px-5 mx-auto  text-center'>
              {/* heading */}
              <div className='flex flex-col items-center'>
               <h1 className='font-bold text-center text-6xl md:text-left'>
@@ -49,7 +66,7 @@ export function Testimonial() {
               }
              </div>
           </div> 
-          
+          </motion.div>
       </section>  
   )
 }

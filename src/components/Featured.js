@@ -1,7 +1,28 @@
+import { animate, motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+
 export function Featured() {
+
+  const targetRef = useRef(null)
+  const {scrollYProgress} = useScroll({
+    target: targetRef,
+    offset: ["end start", "end end"],
+  })
+
+  const opacity = useTransform(scrollYProgress, [0.5,0], [1,0])
+
+  console.log(scrollYProgress)
   return (
     <section id="features">
-        <div className='grid place-content-center mt-[13rem]'>
+       <motion.div 
+    style={{opacity}}
+    ref={targetRef}
+    animate={{  x: -500, opacity: 0}}  
+    whileInView={{ x: 0, opacity: 1 }} 
+    transition={{type: 'spring', stiffness: 80}}
+    className='mt-[15rem]'
+  >
+        <div className='grid place-content-center '>
           <div className='flex flex-col items-center'>
             <h1 className='font-bold text-center text-6xl md:text-left'>
                  Features
@@ -31,8 +52,17 @@ export function Featured() {
                           desc: "Convenient Delivery"
                         }, 
                     ].map(item => (
-                        <div className='flex flex-grow items-center justify-start gap-2'><img src="https://raw.githubusercontent.com/PKief/vscode-markdown-checkbox/main/logo.png" alt="Item 1" className="w-10 h-10 object-fit object-center" />
-                        <li className='text-2xl' key={item.id}>{item.desc}</li></div>
+                        <motion.div 
+                          initial={{scale: 1}}
+                          whileHover={{scale: 1.1}}
+                          transition={{type: 'spring', stiffness: 80}}
+                        className='flex cursor-pointer flex-grow items-center justify-start gap-2'>
+                          
+                        <motion.img
+                        whileInView={{ rotate: 720, }} 
+                        transition={{ type: 'spring', stiffness: 100 }}
+                        src="https://raw.githubusercontent.com/PKief/vscode-markdown-checkbox/main/logo.png" alt="Item 1" className="w-10 h-10 object-fit object-center" />
+                        <li className='text-2xl' key={item.id}>{item.desc}</li></motion.div>
                       ))
                   }
                 </ul>
@@ -40,6 +70,7 @@ export function Featured() {
               
           </div>  
         </div>
+        </motion.div>
       </section>
   )
 }

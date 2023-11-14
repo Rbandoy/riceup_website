@@ -15,8 +15,12 @@ export function Home() {
    
     <section id="hero">  
      <motion.div 
-    style={{opacity}}
-    ref={targetRef}
+    // style={{opacity}}
+    // ref={targetRef}
+    // animate={{ scale: 0, opacity: 0 }} 
+    // whileInView={{ scale: 1, opacity: 1 }}
+    // transition={{type: 'spring', stiffness: 80}}
+    
   > 
     <motion.div
       initial={{x:'-100vw'}}
@@ -30,6 +34,7 @@ export function Home() {
           animate={{x: 0, opacity: 1, scale: 1}} 
           whileHover={{ scale: 1.1 }}
           transition={{type: 'spring', stiffness: 300}}
+          whileInView={{ scale: 1.1  }} 
           className='max-w-md text-8xl font-bold text-center md:text-7xl md:text-left'>
             <div className='flex cursor-pointer'> 
                 <motion.p
@@ -51,6 +56,7 @@ export function Home() {
           animate={{  opacity: 1}}   
           whileHover={{ scale: 1.1 }}
           transition={{type: 'spring', stiffness: 300}}
+          whileInView={{ scale: 1.1 }} 
           className='bg-clip-text text-transparent bg-gradient-to-r from-black to-primaryText max-w-sm text-2xl text-center  font-bold text-primaryText md:text-left'>
           Your One-Stop Shop for Quality Rice
           Explore a Variety of Premium Rice Grains Delivered to Your Doorstep
@@ -59,10 +65,13 @@ export function Home() {
       </div>
       {/* image */}
       <motion.div
+        style={{opacity}} 
         initial={{ x:'-100vw' }}
-        animate={{x: 20}} 
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration:1,  type: 'spring', stiffness: 100 }} 
+        animate={{x: 20, scale: 0}} 
+        whileHover={{ scale: 1.1 }} 
+        whileInView={{ scale: 1, rotate: 360 }} 
+        transition={{ duration:2,  type: 'spring', stiffness: 50, ease: 'easeInOut' }} 
+        exit={{  rotate: 360}}
           className='md:w-1/2 ml:w-1 sm:w-[30rem]'>
         <img className='relative ' src={require('../assets/rice.jpg')} alt='' />
       </motion.div>
