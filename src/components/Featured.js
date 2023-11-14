@@ -17,10 +17,10 @@ export function Featured() {
        <motion.div 
     style={{opacity}}
     ref={targetRef}
-    animate={{  x: -500, opacity: 0}}  
-    whileInView={{ x: 0, opacity: 1 }} 
+    animate={{  scale: 0, opacity: 0}}  
+    whileInView={{ scale: 1, opacity: 1 }} 
     transition={{type: 'spring', stiffness: 80}}
-    className='mt-[15rem]'
+    className='mt-[7rem] sm:mt-[9rem] md:mt-[10rem]'
   >
         <div className='grid place-content-center '>
           <div className='flex flex-col items-center'>
@@ -28,9 +28,9 @@ export function Featured() {
                  Features
             </h1>
           </div>
-          <div className='flex md:flex-row items-center flex-col m-32 space-y-12'>
+          <div className='flex md:flex-row items-center flex-col m-10 space-y-12'>
                
-                <p className='max-w-4xl text-center md:mx-20 text-2xl text-secondary md:text-left'>
+                <p className='max-w-4xl text-left sm:text-center md:mx-20 text-2xl text-secondary md:text-left'>
                 At Rice Haven, we take pride in presenting a collection of premium rice varieties that redefine the standard for excellence. Our commitment to quality, sustainability, and authenticity shines through each grain. Here's why our rice is truly exceptional:
                 </p>
                

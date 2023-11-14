@@ -18,15 +18,15 @@ export function WhyChoose() {
          animate={{ x: 300, opacity: 0 }} 
          whileInView={{ x: 0, opacity: 1 }}
          transition={{type: 'spring', stiffness: 80}}
-         className='mt-[15rem]'
+         className='mt-5 sm:mt-[5rem] md:mt-[15rem]'
       > 
         <div className='grid place-content-center mt-[13rem]'> 
-            <div className='flex flex-col items-center'> 
+            <div className='flex flex-col items-center space-y-12'> 
               <motion.h1  
               className='font-bold text-center text-6xl md:text-left'>
                 Why Choose Rice Up?
               </motion.h1>
-              <p className='max-w-5xl mt-6 sm:max-w-4xl sm:mx-20 text-center text-3xl text-secondary '>
+              <p className='max-w-4xl mt-6 text-left sm:text-center md:mx-20 text-2xl text-secondary md:text-left'>
               Rice Up is your go-to destination for the finest quality rice grains. Discover a curated selection of premium rice varieties sourced from the best farms around the world. From Basmati to Jasmine, our rice collection is a testament to quality, flavor, and authenticity.</p>
             </div> 
         </div>

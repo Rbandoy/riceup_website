@@ -35,8 +35,8 @@ export function Home() {
           whileHover={{ scale: 1.1 }}
           transition={{type: 'spring', stiffness: 300}}
           whileInView={{ scale: 1.1  }} 
-          className='max-w-md text-8xl font-bold text-center md:text-7xl md:text-left'>
-            <div className='flex cursor-pointer'> 
+          className='max-w-md text-6xl font-bold text-center md:text-7xl md:text-left'>
+            <div className=' flex cursor-pointer'> 
                 <motion.p
                 whileHover={{ scale: 1.3 }}   
                 >Welcome to</motion.p> 

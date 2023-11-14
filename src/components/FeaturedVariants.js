@@ -21,7 +21,7 @@ export function FeaturedVariants() {
     animate={{ scale: 0, opacity: 0 }} 
     whileInView={{ scale: 1, opacity: 1 }}
     transition={{type: 'spring', stiffness: 80}}
-    className='mt-[10rem]'
+    className='mt-5 sm:mt-[5rem] md:mt-[10rem]'
   >
         <div className='grid place-content-center'> 
         
