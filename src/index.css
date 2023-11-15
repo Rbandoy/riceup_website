@@ -38,3 +38,13 @@ nav {
   top: 0;
   z-index: 1000;
 }
+.custom-paging {
+  /* display: inline-block; */
+  /* padding: 5px; */
+}
+
+.custom-paging img {
+  width: 400px; /* Adjust the width as needed */
+  height: "auto";
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+}

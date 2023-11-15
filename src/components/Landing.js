@@ -7,6 +7,7 @@ import { Testimonial } from './Testimonial'
 import { About } from './About'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { PreviewModal } from './utility/PreviewModal'
 
 export function Landing() {
   const targetRef = useRef(null)
@@ -35,7 +36,7 @@ export function Landing() {
 
       {/* Featured Variants */} 
         <FeaturedVariants /> 
-
+        
       {/* testimonial */} 
         <Testimonial />   
     </div>

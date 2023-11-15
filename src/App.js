@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { PageNotFound } from './components/utility/PageNotFound';
 import { Products } from './components/Products';
+import { ItemPreview } from './components/ItemPreview';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       </Route> */}
       <Route path='/about' element={<About />}/> 
       <Route path='/policy' element={<PrivacyPolicy />}/> 
-      <Route path='/products' element={<Products />}/> 
+      <Route path='/products' element={<Products />}/>
+      <Route path='/products/item' element={<ItemPreview />}/>  
       <Route path='*' element={<PageNotFound />}/> 
     </Routes>
     <Footer />
