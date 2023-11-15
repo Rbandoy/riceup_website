@@ -19,13 +19,13 @@ function App() {
     <div className='relative z-10 w-full'> 
     <NavBar />
     <Routes>
-      <Route path='/' element={<Landing />}/>
+      <Route path='/home' element={<Landing />}/>
       {/* <Route path='/Home' element={}> 
         <Route path='history' element={<CompanyHistory />}/>
       </Route> */}
       <Route path='/about' element={<About />}/> 
       <Route path='/policy' element={<PrivacyPolicy />}/> 
-      <Route path='/products' element={<Products />}/>
+      <Route path='/' element={<Products />}/>
       <Route path='/products/item' element={<ItemPreview />}/>  
       <Route path='*' element={<PageNotFound />}/> 
     </Routes>

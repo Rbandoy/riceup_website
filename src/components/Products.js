@@ -81,7 +81,7 @@ export function Products() {
               unit: "kg"
             }
           ].map(item => (
-          <Link to={`item?id=${item.id}`}>
+          <Link to={`products/item?id=${item.id}`}>
           <motion.div
           whileHover={{ scale: 1.01 }}
           className="cursor-pointer grid grid-rows-2 bg-card w-[15rem] h-[25rem] border-2 border-gray-55 

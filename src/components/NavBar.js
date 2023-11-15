@@ -2,8 +2,8 @@ import { useReducer, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 const NavMenu = [
-  {name: "Home", link: "/"},
-  {name: "Products", link: "/products"}, 
+  {name: "Home", link: "/home"},
+  {name: "Products", link: "/"}, 
   {name: "About Us", link: "/about"},
   {name: "Privacy Policy", link: "/policy"}
 ]
