@@ -9,10 +9,13 @@ import {
 import { About } from './components/About';
 import { Footer } from './components/Footer';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { PageNotFound } from './components/utility/PageNotFound';
+import { Products } from './components/Products';
 
 function App() {
   return (
   <BrowserRouter>
+    <div className='relative z-10 w-full'> 
     <NavBar />
     <Routes>
       <Route path='/' element={<Landing />}/>
@@ -21,9 +24,11 @@ function App() {
       </Route> */}
       <Route path='/about' element={<About />}/> 
       <Route path='/policy' element={<PrivacyPolicy />}/> 
-      <Route path='*' element={<div><h1>Not Found</h1></div>}/> 
+      <Route path='/products' element={<Products />}/> 
+      <Route path='*' element={<PageNotFound />}/> 
     </Routes>
     <Footer />
+    </div>
   </BrowserRouter>
   );
 }

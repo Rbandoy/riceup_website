@@ -23,7 +23,7 @@ module.exports = {
         secondary: "#FF4500", 
         primaryText: "#333333",
         neutral: 'white',
-        card: '#FBFFF7',
+        card: '#fff8e4',
         backgroundPrimary: '#76FC8E',
         buttonColor: '#FF782F',
         borderColor: "#E9E1E1",

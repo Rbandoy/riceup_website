@@ -15,12 +15,14 @@
     background-size: 20% 400px;  
     backdrop-filter: blur(1px); */
     background-attachment: fixed;
+    background-color: "#fff8e4";
   }
 
   @media (max-width: 576) {
     body {
       background-position: 50px -50px;
       background-size: 500px;
+      
     }
   }
 
@@ -29,3 +31,10 @@
       monospace;
   }
 
+
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}

@@ -18,7 +18,7 @@ export function Landing() {
   const ops = useTransform(scrollYProgress, [0,1], [1,0])
  
   return (
-    <>
+    <div className='flex flex-col gap-[10rem]'>
  
       <motion.div 
           style={{ops}}
@@ -38,6 +38,6 @@ export function Landing() {
 
       {/* testimonial */} 
         <Testimonial />   
-    </>
+    </div>
   )
 }

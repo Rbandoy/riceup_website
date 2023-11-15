@@ -20,8 +20,7 @@ export function FeaturedVariants() {
     ref={targetRef}
     animate={{ scale: 0, opacity: 0 }} 
     whileInView={{ scale: 1, opacity: 1 }}
-    transition={{type: 'spring', stiffness: 80}}
-    className='mt-5 sm:mt-[5rem] md:mt-[10rem]'
+    transition={{type: 'spring', stiffness: 80}} 
   >
         <div className='grid place-content-center'> 
         
@@ -58,7 +57,7 @@ export function FeaturedVariants() {
                     <h2 className='font-bold text-center text-3xl mt-8'>
                       {item.name}
                     </h2>
-                    <p className='max-w-5xl mt-6 sm:max-w-4xl sm:mx-20 text-center text-3xl text-secondary '>
+                    <p className='max-w-5xl mt-6 sm:max-w-2xl sm:mx-20 text-center text-3xl text-secondary '>
                       {item.desc}
                     </p>
                   </motion.div>

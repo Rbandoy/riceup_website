@@ -17,10 +17,9 @@ export function WhyChoose() {
          ref={targetRef} 
          animate={{ x: 300, opacity: 0 }} 
          whileInView={{ x: 0, opacity: 1 }}
-         transition={{type: 'spring', stiffness: 80}}
-         className='mt-5 sm:mt-[5rem] md:mt-[15rem]'
+         transition={{type: 'spring', stiffness: 80}} 
       > 
-        <div className='grid place-content-center mt-[13rem]'> 
+        <div className='grid place-content-center'> 
             <div className='flex flex-col items-center space-y-12'> 
               <motion.h1  
               className='font-bold text-center text-6xl md:text-left'>
