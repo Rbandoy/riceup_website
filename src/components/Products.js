@@ -21,9 +21,14 @@ export function Products() {
           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVlNDkwNDFiYzM0NTRmOThiMzQ5YWUwMjA4MDhkZiIsInVzZXJuYW1lIjoicmVuZSIsImRldmljZUlkIjoiMTIzMTIzMTIzMTI0MTIzIiwiaWF0IjoxNzAwMDY4NDg2LCJleHAiOjE3MDAwNzIwODZ9.tLXiWQX2aTHvRTViRct5nXkwAcT0vl_FJit5xDz1nxU'
         }
       }); 
-      setProducts(response.data);
-      setFetchingdata(false)
-      console.log(fetchingData)
+
+      if (response.data?.is_success) {
+        setProducts(response.data);
+        setFetchingdata(false)
+      }
+
+      console.log(products)
+       
     } catch (error) {
       console.log(error)
       setProducts(error.message || 'An error occurred');
