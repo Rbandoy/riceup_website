@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import axios from 'axios';
 
+import { ProductsService } from './services/ProductService';
 export function ItemPreview() {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
@@ -29,8 +29,7 @@ export function ItemPreview() {
     // Add event listener for window resize
     window.addEventListener('resize', updateScreenSize);
     setFetchingdata(true)
-   
-    // Clean up the event listener when the component unmounts
+    
     return () => {
       window.removeEventListener('resize', updateScreenSize);
     };
@@ -41,13 +40,12 @@ export function ItemPreview() {
   async function makeRequest() {
   
     try {
-      const response = await axios.get(`https://secure.riceup.store/ers/api/v1/products/${itemId}`);  
-
-      if (response.data?.is_success) {
-        setProducts(response.data.data);
-        setFetchingdata(false)
-        console.log(response.data.data) 
-        console.log("prod",products) 
+     
+      const response = await ProductsService.fetchProductById(itemId);
+      console.log(response)
+      if (response?.is_success) {
+        setProducts(response.data);
+        setFetchingdata(false) 
       }
     } catch (error) { 
       setProducts(error.message || 'An error occurred');
@@ -67,7 +65,7 @@ export function ItemPreview() {
     return (
       <div
         className={className}
-        style={{ ...style,   background: "#ccc", width: "20px", height: "20px", paddingTop: "2px", paddingBottom: "2px", borderRadius: "20px"  }}
+        style={{ ...style,   background: "#FFD700", width: "20px", height: "20px", paddingTop: "2px", paddingBottom: "2px", borderRadius: "20px"  }}
         onClick={onClick}
       />
     );
@@ -78,7 +76,7 @@ export function ItemPreview() {
     return (
       <div
         className={className}
-        style={{ ...style,   background: "#ccc", width: "20px", height: "20px", paddingTop: "2px", paddingBottom: "2px", borderRadius: "20px"  }}
+        style={{ ...style,   background: "#FFD700", width: "20px", height: "20px", paddingTop: "2px", paddingBottom: "2px", borderRadius: "20px"  }}
         onClick={onClick}
       />
     );
@@ -102,12 +100,22 @@ export function ItemPreview() {
   
   function addQuantity(){
     if (quantity < products.product_info[0].stock_quantity)
-      setQuantity(quantity+1)
+      setQuantity(Number(quantity)+1)
   }
 
   function minusQuantity() {
     if (quantity > 0) {
-      setQuantity(quantity-1)
+      setQuantity(Number(quantity)-1)
+    }
+  }
+
+  function addManualQuantity(arg) {
+    const input = arg.target.value
+    if (input > products.product_info[0].stock_quantity) {
+      return setQuantity(quantity) 
+    }
+    if (/^[0-9]+$/.test(input)) { 
+        setQuantity(Number(input))
     }
   }
   
@@ -116,44 +124,44 @@ export function ItemPreview() {
       <div class="w-[19rem] h-[25rem] sm:h-[30rem] sm:w-[30rem]  md:w-[50rem] lg:w-[60rem]   flex flex-col grid-row-1">
       { 
       (fetchingData == false) ? (
-        <div className='border-card border-2 md:flex-row flex flex-col  justify-center md:justify-start  align-center'>   
-         <div className="border-2 max-w-full md:max-w-[20rem] lg:max-w-[30rem] cursor-pointer md:mx-10 sm:mx-5 sm:max-w-[30rem]" >
+        <div className='border-card p-1 border-2 md:flex-row flex flex-col  justify-center md:justify-start  align-center'>   
+         <div className="border-2 max-w-full md:max-w-[20rem] lg:max-w-[30rem] cursor-pointer md:mx-10 sm:mx-5 sm:max-w-[30rem]" > 
          <Slider  {...settings}>
           {
-            products.images.map(item => ( 
-              <img src={item} alt="Slide 3" className="w-full h-full" /> 
+            products.images.map(item => (
+                 <img src={item} alt="Slide 3" className="    w-full h-full" /> 
             ))
-          }
-          </Slider> 
-          <div className='justify-center flex mt-10'>
+          } 
+          </Slider>  
+          {/* <div className='justify-center flex mt-10'>
           {
             products.images.map(item => ( 
               <img className="w-[3rem] h-[4rem] sm:w-[5rem] sm:h-[6rem] cursor-pointer" src={item} alt="Slide 3"   /> 
                 ))
           }  
-          </div>
+          </div> */}
          </div> 
          <div className='flex flex-col justify-start mt-10 mx-5 mb-5'>
           <div>
             <h1 className="font-bold" style={{textTransform: 'uppercase'}}>{products.product_info[0].name}</h1>
+            <p className='text-primaryText'>{products.product_info[0].description}</p>
             <p className='mt-10 text-primaryText'>Stock:  {products.product_info[0].stock_quantity}</p>
             <p className='mt-10'>{`₱`} {products.product_info[0].price} / {products.product_info[0].weight}{products.product_info[0].unit}</p>
             <div className='mt-10'>
-              <div className='flex justify-between'>
+              <div className='flex flex-col md:flex-row justify-between'>
                 <p>Quantity</p>
                 <div className='mx-[3rem] sm:mx-[8rem] flex flex-row  justify-between w-[10rem] md:mx-[4rem]'>
                   <button onClick={() => addQuantity()} className={`border-2 px-5 ${quantity === products.product_info[0].stock_quantity ? "bg-primary": ""} `}>+</button>
-                  <p className='border-2 px-5'>{quantity}</p>
+                  <input type='text'  className='border-2 text-center w-full' onChange={(e) => addManualQuantity(e)} value={quantity}/>
                   <button onClick={() => minusQuantity()} className={`border-2 px-5 ${quantity === 0 ? "bg-primary": ""} `}>-</button>
-                  
-                </div> 
+                </div>
               </div>
               <div className='flex justify-between mt-5 '>
                 <p>Total: {Number(products.product_info[0].price) * quantity}</p>
               </div>
               <div className='flex justify-center gap-2 mt-[4rem]  '>
-                <button className='w-[10rem] border-2 px-5 bg-primary hover:bg-neutral hover:border-primary'>Add To Cart</button>
-                <button  className='w-[10rem] border-2 py-4 px-5 bg-secondary  hover:bg-neutral hover:border-secondary'>Buy Now</button>
+                <button className='w-[10rem] font-bold border-2 px-5 bg-primary hover:bg-neutral hover:border-primary'>Add To Cart</button>
+                <button  className='w-[10rem] font-bold border-2 py-4 px-5 bg-secondary  hover:bg-neutral hover:border-secondary'>Buy Now</button>
               </div>
           </div>
           </div> 
