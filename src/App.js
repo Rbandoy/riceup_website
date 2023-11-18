@@ -12,8 +12,20 @@ import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { PageNotFound } from './components/utility/PageNotFound';
 import { Products } from './components/Products';
 import { ItemPreview } from './components/ItemPreview';
-
+import { Login } from './components/Login';
+import { useEffect } from 'react';
+import { SignUp } from './components/SignUp';
+import { VerifyPage } from './components/VerifyPage';
 function App() {
+  useEffect(() => {
+    // Change body color when the component mounts
+    document.body.style.backgroundColor = '#fef6f5';
+    // Clean up the style when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
+
   return (
   <BrowserRouter>
     <div className='relative z-10 w-full'> 
@@ -23,6 +35,9 @@ function App() {
       {/* <Route path='/Home' element={}> 
         <Route path='history' element={<CompanyHistory />}/>
       </Route> */}
+      <Route path='/login' element={<Login />}/> 
+      <Route path='/signup' element={<SignUp />}/> 
+      <Route path='/signup/verify' element={<VerifyPage />}/> 
       <Route path='/about' element={<About />}/> 
       <Route path='/policy' element={<PrivacyPolicy />}/> 
       <Route path='/' element={<Products />}/>

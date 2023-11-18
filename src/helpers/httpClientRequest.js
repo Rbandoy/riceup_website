@@ -18,6 +18,14 @@ export const httpClientRequest = Object.freeze({
       console.info(`Error on Get request: ${URL}, ${error}`) 
     }
   }, 
+  post: async (URL, payload) => {
+    try { 
+      const response = await axios.post(`${URL}`, payload) 
+      return response.data
+    } catch (error) {
+      console.info(`Error on POST request: ${URL}, ${error}`) 
+    }
+  }
 })
 
  

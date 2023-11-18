@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import {GetStartedButton} from './utility/GetStartedButton'
+import { PreviewModal } from './utility/PreviewModal';
 export function Home() {
 
   const targetRef = useRef(null)
@@ -20,6 +21,7 @@ export function Home() {
     // whileInView={{ scale: 1, opacity: 1 }}
     // transition={{type: 'spring', stiffness: 80}} 
   >
+    
     <motion.div
       initial={{x:'-100vw'}}
       animate={{x:0}}

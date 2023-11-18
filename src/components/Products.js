@@ -38,13 +38,13 @@ export function Products() {
           <Link to={`products/item?id=${item.id}`}>
           <motion.div
           whileHover={{ scale: 1.01 }}
-          className="cursor-pointer grid grid-rows-2 bg-card w-[15rem] h-[25rem] border-2 border-gray-55 
+          className="cursor-pointer grid grid-rows-2 bg-white w-[15rem] h-[25rem] border-2 border-gray-55 
           rounded-10
           hover:border-secondary hover:border-2">
           <div className="flex items-start justify-center row-span-2 col-span-2 bg-card"> 
             <img className="w-full h-full" alt="" src={item.featured_image}/>
             </div>
-            <div className="flex  flex-col items-center row-span-1 col-span-2 border-t-2 border-primary text-primaryText">
+            <div className="flex  flex-col items-center row-span-1 col-span-2   text-primaryText">
               <p className="px-2  w-full"> 
                 {`${item.name}: ${item.description?.slice(0, 32)}`} {item.description?.length > 32 ? "...": ""}</p> 
                 <p className="px-2 pt-5 w-full    "> 

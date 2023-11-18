@@ -1,6 +1,7 @@
 import { useReducer, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { PreviewModal } from './utility/PreviewModal';
 const NavMenu = [
   {name: "Home", link: "/home"},
   {name: "Products", link: "/"}, 
@@ -11,6 +12,8 @@ const NavMenu = [
 export function NavBar() {
   const [hamburger, setHamburger] = useState(false)
   const [scrolling, setScrolling] = useState(false);
+  const [loginModal, setLoginModal] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -27,6 +30,11 @@ export function NavBar() {
     };
   }, []);
 
+  function closeModal() {
+    setLoginModal(false)
+  }
+
+  
   return (
     <nav className={`bg-white p-4 ${
       scrolling ? 'bg-opacity-80' : ''
@@ -62,9 +70,9 @@ export function NavBar() {
               whileHover={{ scale: 1.1 }} 
               transition={{   type: 'spring', stiffness: 300 }}
             >
-      <a href='#'
+       <Link to='/login' key="login" 
        className="hidden md:block hover:bg-secondary  text-primaryText font-bold px-12 pt-2 p-3 baseline rounded-full border-2 border-secondary">
-        Login</a>
+        Login</Link>
         </motion.div>
         </div>
         
@@ -85,7 +93,7 @@ export function NavBar() {
             </ul>
       </div>
          )
-          }
+          } 
     </div>
   </nav>
   )

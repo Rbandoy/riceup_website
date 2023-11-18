@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="bg-lighter mt-[10rem]"> 
+    <footer className="bg-white mt-[10rem]"> 
       <div className="flex flex-col-reverse justify-between md:mx-[15rem] px-6 py-10 max-auto space-y-8 md:flex-row md:space-y-0">
         <div className='flex flex-col-reverse items-center space-y-2 md:flex-col md:space-y-0 md:items-start'>
           <div>
