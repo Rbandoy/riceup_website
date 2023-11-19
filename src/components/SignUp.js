@@ -19,7 +19,7 @@ export function SignUp() {
   async function sendCode() {
     setSendingCode(true)
     const response = await OtpService.sendVerification(phone)
-    console.log(response)
+ 
     if (response?.is_success === false) {
       setSendingCode(false)
       alert(response.message)
